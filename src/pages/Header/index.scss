@@ -7,6 +7,20 @@
   --transition: all 0.2s ease-in-out;
   --bp1: 1150px;
 
+  .arrow {
+    width: 10px;
+    height: 10px;
+    border: 1.3px solid #333;
+    border-left: 0;
+    border-top: 0;
+    transition: all 0.2s ease-out;
+  }
+
+  .arrow-bottom {
+    @extend .arrow;
+    transform: rotate(45deg);
+  }
+
   &.desktop {
     box-shadow: var(--box-shadow-nav);
     display: grid;
@@ -183,19 +197,5 @@
         display: block !important;
       }
     }
-  }
-
-  .arrow {
-    width: 10px;
-    height: 10px;
-    border: 1.3px solid #333;
-    border-left: 0;
-    border-top: 0;
-    transition: all 0.2s ease-out;
-  }
-
-  .arrow-bottom {
-    @extend .arrow;
-    transform: rotate(45deg);
   }
 }
