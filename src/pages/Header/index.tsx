@@ -113,7 +113,7 @@ function index() {
       setIsMobileMenuOpen(true)
     } else {
       headerRef.current.className = "header-sec mobile"
-      // setIsMobileMenuOpen(true)
+      setIsMobileMenuOpen(false)
     }
   }
 
@@ -122,6 +122,9 @@ function index() {
     window.addEventListener("resize", handleResize, false);
   }, []);
 
+  useEffect(() => {
+    handleMenuToggle(isMobileMenuOpen)
+  }, [isMobileMenuOpen]);
 
   function showMenu(menu: any[], id = 'nav__anchor', count = 0) {
     const className = count === 0 ? 'menu-list ' : 'menu-sub-list'
@@ -140,12 +143,10 @@ function index() {
     )
   }
   function handleMenuToggle(isMenuOpened) {
-    if (isMenuOpened) {
+    if (!isMenuOpened) {
       navRef.current.style.display = "none"
-      setIsMobileMenuOpen(false)
     } else {
       navRef.current.style.display = "flex"
-      setIsMobileMenuOpen(true)
     }
   }
 
@@ -161,7 +162,7 @@ function index() {
           </div>
         ))}
       </nav>
-      <div className="menu_mobile" onClick={() => handleMenuToggle(isMobileMenuOpen)}>
+      <div className="menu_mobile" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
         {!isMobileMenuOpen && <MenuOpen />}
         {isMobileMenuOpen && <MenuClose />}
       </div>

@@ -69,7 +69,7 @@
 
   .border-top {
     left: 18px;
-    width: 90%;
+    width: calc(100% - 30px);
     height: 1px;
     top: 55.39px;
     @extend .custom-border;
