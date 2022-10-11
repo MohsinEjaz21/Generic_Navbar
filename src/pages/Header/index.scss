@@ -65,7 +65,7 @@
   }
 
   .border-top {
-    left: 10px;
+    left: 20px;
     width: 95%;
     height: 1px;
     top: 55.39px;
@@ -119,14 +119,14 @@
         @extend .border-top;
       }
 
-      &.nested.visible {
-        &:after {
-          // @extend .border-top;
-        }
-        &:before {
-          @extend .border-left;
-        }
-      }
+      // &.nested.visible {
+      // &:after {
+      // @extend .border-top;
+      // }
+      //   &:before {
+      //     @extend .border-left;
+      //   }
+      // }
 
       .menu-button {
         padding: 1.2rem 25px;
