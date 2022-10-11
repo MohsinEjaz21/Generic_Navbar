@@ -1,0 +1,14 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    // "src/pages/AntxChatDesign01": true,
+    // "src/pages/AntxChatDesign02": true
+  },
+  "explorerExclude.backup": {},
+  "editor.formatOnSave": true
+}
