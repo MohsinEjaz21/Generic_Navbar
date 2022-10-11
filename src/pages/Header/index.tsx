@@ -99,7 +99,7 @@ function index() {
       navRef.current.style.display = "none"
       setIsMobileMenuOpen(false)
     } else {
-      navRef.current.style.display = "block"
+      navRef.current.style.display = "flex"
       setIsMobileMenuOpen(true)
     }
   }
