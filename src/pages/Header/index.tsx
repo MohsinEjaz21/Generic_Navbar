@@ -2,7 +2,8 @@
 import MenuClose from "@assets/header-icons/fa-mobile-close.svg";
 import MenuOpen from "@assets/header-icons/fa-mobile-open.svg";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+const MOBILE_BREAK_POINT = 1024;
 
 function CreateLink({ text, ...props }) {
   return (
@@ -16,6 +17,7 @@ function CreateLink({ text, ...props }) {
 function index() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const navRef: any = useRef(null);
+  const headerRef: any = useRef(null);
 
   const data = {
     menu: [
@@ -78,6 +80,22 @@ function index() {
     ]
   }
 
+  const handleResize = () => {
+    console.log({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+    if (window.innerWidth >= MOBILE_BREAK_POINT) {
+      navRef.current.style.display = "flex"
+      setIsMobileMenuOpen(true)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize, false);
+  }, []);
+
+
   function showMenu(menu: any[], id = 'nav__anchor', count = 0) {
     const className = count === 0 ? 'menu-list ' : 'menu-sub-list'
     return (
@@ -105,7 +123,7 @@ function index() {
   }
 
   return (
-    <header className="header-sec">
+    <header className="header-sec" ref={headerRef}>
       <img className="logo" src="https://www.kyndryl.com/content/experience-fragments/kyndrylprogram/us/en/sites/header/master/_jcr_content/root/header_copy/image.coreimg.svg/1636019574172/kyndryl-logo.svg" alt="Kyndryl logo" />
       <nav className="navbar" ref={navRef}>
         {data.menu.map((e, i) => (
