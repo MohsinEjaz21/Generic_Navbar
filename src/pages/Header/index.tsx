@@ -55,6 +55,14 @@ function index() {
               },
               {
                 text: '2022',
+                submenu: [
+                  {
+                    text: '2021',
+                  },
+                  {
+                    text: '2022',
+                  }
+                ]
               }
             ]
           }
