@@ -5,6 +5,7 @@
   --box-shadow-nav: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   --hover-bg: rgba(255, 71, 44, 0.09);
   --transition: all 0.2s ease-in-out;
+  --color-gray: #000000;
 
   .arrow {
     width: 10px;
@@ -36,20 +37,40 @@
     width: 100px;
   }
 
-  .border-left {
-    transition: var(--transition);
-    background-color: var(--color-primary);
-    bottom: 0;
-    box-sizing: border-box;
-    content: "";
+  .v-center-abs {
     top: 50%;
     transform: translateY(-50%);
-    width: 2px;
-    height: calc(100% - 30px);
-    left: 0;
+  }
+
+  .h-center-abs {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .custom-border {
+    opacity: 0.2;
+    transition: var(--transition);
+    background-color: var(--color-gray);
+    box-sizing: border-box;
+    content: "";
     position: absolute;
     visibility: visible;
   }
+
+  .border-left {
+    left: 0px;
+    width: 1px;
+    height: calc(100% - 30px);
+    @extend .custom-border, .v-center-abs;
+  }
+
+  .border-top {
+    left: 10px;
+    width: 95%;
+    height: 1px;
+    @extend .custom-border;
+  }
+
   // &&&&&&&&&&&&&&
   //    MOBILE
   // &&&&&&&&&&&&&&
@@ -65,17 +86,25 @@
 
     .menu-list,
     .menu-sub-list {
+      transition: max-height 0.15s ease-out;
       position: relative;
       @extend .hidden;
-      @extend .visible;
+      // @extend .visible;
       &.visible {
         @extend .visible;
       }
     }
 
+    .menu-item {
+      &:before {
+        @extend .border-top;
+      }
+    }
+
     .menu-sub-list {
       margin-left: 25px;
-      border-top: 1px solid gray;
+      // border-top: 1px solid var(--color-gray);
+
       &:before {
         @extend .border-left;
       }
@@ -84,7 +113,17 @@
     .nav__item {
       width: 100%;
       position: relative;
-      border-bottom: 1px solid gray;
+      // border-top: 1px solid var(--color-gray);
+      &:before {
+        top: 0;
+        @extend .border-top;
+      }
+
+      &.nested.visible {
+        &:before {
+          @extend .border-left;
+        }
+      }
 
       .menu-button {
         padding: 1.2rem 25px;
