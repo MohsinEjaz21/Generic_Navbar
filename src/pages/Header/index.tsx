@@ -86,7 +86,7 @@ function index() {
       height: window.innerHeight,
       className: headerRef.current.className
     });
-    if (window.innerWidth >= MOBILE_BREAK_POINT) {
+    if (window.innerWidth > MOBILE_BREAK_POINT) {
       headerRef.current.className = "header-sec desktop"
       navRef.current.style.display = "flex"
       setIsMobileMenuOpen(true)
@@ -97,6 +97,7 @@ function index() {
   }
 
   useEffect(() => {
+    handleResize();
     window.addEventListener("resize", handleResize, false);
   }, []);
 

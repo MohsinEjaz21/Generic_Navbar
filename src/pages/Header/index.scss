@@ -5,7 +5,6 @@
   --box-shadow-nav: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   --hover-bg: rgba(255, 71, 44, 0.09);
   --transition: all 0.2s ease-in-out;
-  --bp1: 1150px;
 
   .arrow {
     width: 10px;
@@ -29,6 +28,19 @@
   // &&&&&&&&&&&&&&
 
   &.mobile {
+    display: grid;
+    grid-auto-flow: column;
+    height: 85px;
+    justify-content: space-between;
+    width: 90%;
+    margin: 0 auto;
+    align-items: center;
+
+    .navbar {
+      position: absolute;
+      top: 85px;
+    }
+
     .menu_mobile {
       display: block;
     }
