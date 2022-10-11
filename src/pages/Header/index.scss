@@ -21,6 +21,23 @@
     transform: rotate(45deg);
   }
 
+  .logo {
+    width: 100px;
+  }
+  // &&&&&&&&&&&&&&
+  //    MOBILE
+  // &&&&&&&&&&&&&&
+
+  &.mobile {
+    .menu_mobile {
+      display: block;
+    }
+  }
+
+  // &&&&&&&&&&&&&&
+  //    DESKTOP
+  // &&&&&&&&&&&&&&
+
   &.desktop {
     box-shadow: var(--box-shadow-nav);
     display: grid;
@@ -32,11 +49,6 @@
     padding: 0 5%;
     height: 80px;
 
-    @include maxMedia(1024px) {
-      box-shadow: none;
-      justify-content: space-between;
-    }
-
     .navbar {
       height: 85px;
       background: transparent;
@@ -44,21 +56,8 @@
       grid-auto-flow: column;
       column-gap: 1.5rem;
       align-items: center;
-      // min-width: 700px;
       width: auto;
       margin-left: auto;
-      @include maxMedia(1200px) {
-        column-gap: 0.3rem;
-      }
-      @include maxMedia(1024px) {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 85px;
-        width: 100%;
-        height: 100%;
-        left: 0;
-      }
     }
 
     .menu-button {
@@ -181,10 +180,6 @@
       }
     }
 
-    .logo {
-      width: 100px;
-    }
-
     .menu {
       display: flex;
       flex-direction: column;
@@ -193,9 +188,6 @@
 
     .menu_mobile {
       display: none;
-      @include maxMedia(1024px) {
-        display: block !important;
-      }
     }
   }
 }
