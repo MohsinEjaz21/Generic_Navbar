@@ -22,8 +22,33 @@
     transition: all 0.2s ease-out;
   }
 
+  .hidden {
+    visibility: collapse;
+    height: 0;
+  }
+
+  .visible {
+    visibility: visible;
+    height: 100%;
+  }
+
   .logo {
     width: 100px;
+  }
+
+  .border-left {
+    transition: var(--transition);
+    background-color: var(--color-primary);
+    bottom: 0;
+    box-sizing: border-box;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: calc(100% - 30px);
+    left: 0;
+    position: absolute;
+    visibility: visible;
   }
   // &&&&&&&&&&&&&&
   //    MOBILE
@@ -34,18 +59,35 @@
     grid-auto-flow: column;
     height: 85px;
     justify-content: space-between;
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     align-items: center;
 
-    .menu-list {
-      visibility: collapse;
-      height: 0;
+    .menu-list,
+    .menu-sub-list {
+      position: relative;
+      @extend .hidden;
+      @extend .visible;
+      &.visible {
+        @extend .visible;
+      }
+    }
+
+    .menu-sub-list {
+      padding-left: 25px;
+      &:before {
+        margin-left: 25px;
+        @extend .border-left;
+      }
     }
 
     .nav__item {
       width: 100%;
+      position: relative;
+      border-bottom: 1px solid gray;
+
       .menu-button {
+        padding: 1.2rem 25px;
         width: 100%;
         display: grid;
         grid-auto-flow: column;
@@ -54,16 +96,20 @@
         border: none;
         justify-content: space-between;
       }
+
+      &:before {
+        @extend .border-left;
+      }
     }
 
     .navbar {
+      width: 95%;
       position: absolute;
       top: 100px;
       display: flex;
       left: 0;
       // row-gap: 2rem;
       flex-direction: column;
-      width: 90%;
       left: 50%;
       transform: translateX(-50%);
     }
