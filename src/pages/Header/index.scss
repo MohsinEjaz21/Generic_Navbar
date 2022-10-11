@@ -5,7 +5,7 @@
   --box-shadow-nav: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
   --hover-bg: rgba(255, 71, 44, 0.09);
   --transition: all 0.2s ease-in-out;
-  --color-gray: #000000;
+  --color-gray: rgba(0, 0, 0, 0.2);
 
   .arrow {
     width: 10px;
@@ -48,7 +48,6 @@
   }
 
   .custom-border {
-    opacity: 0.2;
     transition: var(--transition);
     background-color: var(--color-gray);
     box-sizing: border-box;
@@ -90,7 +89,7 @@
       transition: max-height 0.15s ease-out;
       position: relative;
       @extend .hidden;
-      @extend .visible;
+      // @extend .visible;
       &.visible {
         @extend .visible;
       }
