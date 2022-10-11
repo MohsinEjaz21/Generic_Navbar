@@ -21,7 +21,7 @@
   padding: 0 5%;
   height: 80px;
 
-  @include maxMedia(1150px) {
+  @include maxMedia(1024px) {
     box-shadow: none;
     justify-content: space-between;
   }
@@ -167,9 +167,11 @@
     // min-width: 700px;
     width: auto;
     margin-left: auto;
-    @include maxMedia(1150px) {
-      display: none;
+    @include maxMedia(1200px) {
       column-gap: 0.3rem;
+    }
+    @include maxMedia(1024px) {
+      display: none;
       flex-direction: column;
       position: absolute;
       top: 85px;
@@ -181,7 +183,7 @@
 
   .menu_mobile {
     display: none;
-    @include maxMedia(1150px) {
+    @include maxMedia(1024px) {
       display: block !important;
     }
   }
