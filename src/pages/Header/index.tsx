@@ -84,10 +84,15 @@ function index() {
     console.log({
       width: window.innerWidth,
       height: window.innerHeight,
+      className: headerRef.current.className
     });
     if (window.innerWidth >= MOBILE_BREAK_POINT) {
+      headerRef.current.className = "header-sec desktop"
       navRef.current.style.display = "flex"
       setIsMobileMenuOpen(true)
+    } else {
+      headerRef.current.className = "header-sec mobile"
+      // setIsMobileMenuOpen(true)
     }
   }
 
