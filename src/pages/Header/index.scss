@@ -56,8 +56,12 @@
       grid-auto-flow: column;
       column-gap: 1.5rem;
       align-items: center;
+      // min-width: 700px;
       width: auto;
       margin-left: auto;
+      @include maxMedia(1200px) {
+        column-gap: 0.3rem;
+      }
     }
 
     .menu-button {
