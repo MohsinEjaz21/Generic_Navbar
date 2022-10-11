@@ -6,8 +6,21 @@ import { useEffect, useRef, useState } from "react";
 const MOBILE_BREAK_POINT = 1024;
 
 function CreateLink({ text, ...props }) {
+  const buttonRef: any = useRef(null);
+
+  function handleLinkClick() {
+    console.log(buttonRef?.current?.nextSibling)
+    let className = buttonRef?.current?.nextSibling.className;
+    if (className.indexOf("visible") > -1) {
+      className = className.replace("visible", '');
+    } else {
+      className = className + " visible";
+    }
+    buttonRef.current.nextSibling.className = className;
+  }
+
   return (
-    <button className="menu-button">
+    <button className="menu-button" ref={buttonRef} onClick={() => { handleLinkClick() }} >
       <span>{props.iconLeft}{text}</span>
       {props.iconRight}
     </button>
