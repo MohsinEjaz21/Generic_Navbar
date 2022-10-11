@@ -16,8 +16,10 @@
   }
 
   .arrow-bottom {
+    display: block;
     @extend .arrow;
     transform: rotate(45deg);
+    transition: all 0.2s ease-out;
   }
 
   .logo {
@@ -36,9 +38,34 @@
     margin: 0 auto;
     align-items: center;
 
+    .menu-list {
+      visibility: collapse;
+      height: 0;
+    }
+
+    .nav__item {
+      width: 100%;
+      .menu-button {
+        width: 100%;
+        display: grid;
+        grid-auto-flow: column;
+        background-color: transparent;
+        outline: none;
+        border: none;
+        justify-content: space-between;
+      }
+    }
+
     .navbar {
       position: absolute;
-      top: 85px;
+      top: 100px;
+      display: flex;
+      left: 0;
+      // row-gap: 2rem;
+      flex-direction: column;
+      width: 90%;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .menu_mobile {
@@ -159,9 +186,6 @@
             transform: rotate(225deg) translateX(-5px);
           }
         }
-      }
-      .arrow-bottom {
-        transition: all 0.2s ease-out;
       }
     }
 
