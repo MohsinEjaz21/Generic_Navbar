@@ -1,6 +1,6 @@
 
-import MenuClose from "@assets/header-icons/fa-mobile-close.svg";
-import MenuOpen from "@assets/header-icons/fa-mobile-open.svg";
+import MenuClose from "@assets/icons/fa-mobile-close.svg";
+import MenuOpen from "@assets/icons/fa-mobile-open.svg";
 
 import { useEffect, useRef, useState } from "react";
 const MOBILE_BREAK_POINT = 1024;
