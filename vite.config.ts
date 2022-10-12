@@ -5,6 +5,7 @@ const path = require('path')
 
 export default defineConfig({
   // also change alias in tsconfig.json compilerOptions > path
+  base: '/react-navbar/',
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, './src'),
