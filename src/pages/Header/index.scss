@@ -2,7 +2,8 @@
   --color-primary: rgb(255, 71, 44);
   --color-background: #fff;
   --box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-  --box-shadow-nav: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  // --box-shadow-nav: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+  --box-shadow-nav: 0 3px 10px rgb(0 0 0 / 0.2);
   --hover-bg: rgba(255, 71, 44, 0.09);
   --transition: all 0.2s ease-in-out;
   --color-gray: rgba(0, 0, 0, 0.2);
@@ -84,20 +85,20 @@
     grid-auto-flow: column;
     height: 85px;
     justify-content: space-between;
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
     align-items: center;
 
     .menu-list,
     .menu-sub-list {
-      // transition: all 0.3s ease-out;
-
-      // transition: max-height 0.15s ease-out;
+      clip-path: polygon(100% 0, 0 0, 0 0, 100% 0);
+      transition: all 0.3s ease-out;
       position: relative;
       @extend .hidden;
       // @extend .visible;
       &.visible {
         @extend .visible;
+        clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
       }
     }
 
@@ -263,7 +264,7 @@
           height: 2px;
           position: absolute;
           visibility: visible;
-          width: 85%;
+          width: 80%;
           @extend .h-center-abs;
         }
       }
