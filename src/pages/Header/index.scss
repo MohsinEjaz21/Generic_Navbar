@@ -257,14 +257,16 @@
           transition: var(--transition);
           -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
           clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-          background-color: var(--color-primary);
-          bottom: 0;
+          // background-color: var(--color-primary);
+          bottom: -10px;
           box-sizing: border-box;
           content: "";
-          height: 2px;
+          height: 20px;
           position: absolute;
           visibility: visible;
-          width: 80%;
+          width: 80px;
+          background-repeat: no-repeat;
+          background-image: url("../../../assets/header-icons/underline.svg");
           @extend .h-center-abs;
         }
       }
