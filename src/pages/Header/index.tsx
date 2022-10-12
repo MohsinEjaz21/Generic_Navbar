@@ -3,6 +3,7 @@ import MenuClose from "@assets/icons/fa-mobile-close.svg";
 import MenuOpen from "@assets/icons/fa-mobile-open.svg";
 
 import { useEffect, useRef, useState } from "react";
+import { MENU_DATA } from "./MenuData";
 const MOBILE_BREAK_POINT = 1024;
 
 function CreateLink({ text, ...props }) {
@@ -56,74 +57,7 @@ function index() {
   const navRef: any = useRef(null);
   const headerRef: any = useRef(null);
 
-  const data = {
-    menu: [
-      {
-        text: 'Experts',
-        submenu: [
-          {
-            text: 'Directors',
-          },
-          {
-            text: 'Administration',
-          },
-          {
-            text: 'Editor / Researcher',
-          }
-        ]
-      },
-      {
-        text: 'Events',
-        submenu: [
-          {
-            text: 'Conference / Saminar'
-          },
-          {
-            text: 'IHD'
-          },
-          {
-            text: 'VISITS'
-          },
-          {
-            text: 'GSTAR',
-            submenu: [
-              {
-                text: '2021',
-              },
-              {
-                text: '2022',
-                submenu: [
-                  {
-                    text: '2021',
-                  },
-                  {
-                    text: '2022',
-                  }
-                ]
-              }
-            ]
-          }
-
-        ]
-      },
-      {
-        text: 'Publications',
-      },
-      {
-        text: 'Journal',
-      },
-      {
-        text: 'Media',
-      }
-      ,
-      {
-        text: 'About',
-      },
-      {
-        text: 'Contact',
-      }
-    ]
-  }
+  const data = MENU_DATA;
 
   const handleResize = () => {
     console.log({
