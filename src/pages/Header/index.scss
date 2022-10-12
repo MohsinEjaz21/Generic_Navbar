@@ -34,7 +34,7 @@
     visibility: visible;
     z-index: 1;
     overflow: visible;
-    height: 100%;
+    height: auto;
   }
 
   .logo {
@@ -141,7 +141,14 @@
         background-color: transparent;
         outline: none;
         border: none;
+        align-items: center;
         justify-content: space-between;
+
+        &.visited {
+          .arrow-bottom {
+            transform: rotate(225deg) translateX(-5px);
+          }
+        }
       }
 
       &:before {
@@ -254,10 +261,10 @@
           box-sizing: border-box;
           content: "";
           height: 2px;
-          left: 0;
           position: absolute;
           visibility: visible;
-          width: 100%;
+          width: 85%;
+          @extend .h-center-abs;
         }
       }
 
@@ -269,7 +276,7 @@
           top: 85px;
         }
         > button {
-          background: var(--hover-bg);
+          // background: var(--hover-bg);
 
           &:before {
             -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);

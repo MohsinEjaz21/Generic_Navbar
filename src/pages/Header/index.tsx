@@ -9,22 +9,46 @@ function CreateLink({ text, ...props }) {
   const buttonRef: any = useRef(null);
 
   function handleLinkClick() {
-    console.log(buttonRef?.current?.nextSibling)
-    let className = buttonRef?.current?.nextSibling.className;
-    if (className.indexOf("visible") > -1) {
-      className = className.replace("visible", '');
-    } else {
-      className = className + " visible";
+    if (window.innerWidth <= MOBILE_BREAK_POINT) {
+      mobileHoverEvents(buttonRef);
+      mobileHoverSubMenuBtn(buttonRef);
     }
-    buttonRef.current.nextSibling.className = className;
   }
 
   return (
     <button className="menu-button" ref={buttonRef} onClick={() => { handleLinkClick() }} >
-      <span>{props.iconLeft}{text}</span>
+      <p className="paragraph">{props.iconLeft}{text}</p>
       {props.iconRight}
     </button>
   );
+}
+
+function mobileHoverEvents(buttonRef: any) {
+  console.log(buttonRef?.current?.nextSibling);
+  let subMenuClass = buttonRef?.current?.nextSibling?.className;
+  if (subMenuClass) {
+    if (subMenuClass?.indexOf("visible") > -1) {
+      subMenuClass = subMenuClass.replace("visible", '');
+      subMenuClass = subMenuClass.trim();
+    } else {
+      subMenuClass = subMenuClass.trim() + " visible";
+    }
+    buttonRef.current.nextSibling.className = subMenuClass;
+  }
+}
+
+function mobileHoverSubMenuBtn(buttonRef: any) {
+  console.log(buttonRef?.current);
+  let subMenuBtnClass = buttonRef?.current?.className;
+  if (subMenuBtnClass) {
+    if (subMenuBtnClass?.indexOf("visited") > -1) {
+      subMenuBtnClass = subMenuBtnClass.replace("visited", '');
+      subMenuBtnClass = subMenuBtnClass.trim();
+    } else {
+      subMenuBtnClass = subMenuBtnClass.trim() + " visited";
+    }
+    buttonRef.current.className = subMenuBtnClass;
+  }
 }
 
 function index() {
@@ -113,7 +137,7 @@ function index() {
       setIsMobileMenuOpen(true)
     } else {
       headerRef.current.className = "header-sec mobile"
-      setIsMobileMenuOpen(false)
+      // setIsMobileMenuOpen(false)
     }
   }
 

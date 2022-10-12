@@ -6,8 +6,8 @@
   --color-secondary: #6837ef;
   --color-paragraph: #555555;
   --color-bg-image: #f0eef7;
-  --font-family-heading: "Poppins", sans-serif;
-  --font-family-body: "Lato", "Poppins", sans-serif;
+  --font-family-heading: "IBM Plex Sans", "Raleway", sans-serif;
+  --font-family-body: "IBM Plex Sans", "Raleway", sans-serif;
   --header-anhor: #1d1d1d;
 }
 
@@ -68,7 +68,7 @@ ul {
   text-decoration: underline;
 }
 #root {
-  max-width: 1440px;
+  // max-width: 1440px;
   margin: 0 auto;
   // background-color: var(--color-bg-image);
 }
@@ -127,9 +127,9 @@ section {
   font-weight: 400;
   line-height: 150%;
   font-family: var(--font-family-body);
-  // font-size: 1.8rem;
+  font-size: 1.8rem;
   color: var(--color-paragraph);
-  --tt-key: paragraph;
+  // --tt-key: paragraph;
 }
 
 .paragraph-light {
@@ -151,25 +151,6 @@ section {
   @include tn {
     min-width: 100px;
   }
-}
-
-.btn-secondary-1 {
-  @extend .btn;
-  @include u_button(var(--color-light), var(--color-secondary), var(--color-secondary));
-}
-
-.btn-secondary-2 {
-  @extend .btn;
-  @include u_button(var(--color-secondary), var(--color-light), var(--color-light));
-}
-.btn-secondary-3 {
-  @extend .btn;
-  @include u_button(var(--color-light), var(--color-dark), var(--color-light));
-}
-
-.btn-primary-1 {
-  @extend .btn;
-  @include u_button(var(--color-primary), var(--color-light), var(--color-primary));
 }
 
 @keyframes heading-large {
@@ -228,7 +209,7 @@ section {
     font-size: 1.8rem;
   }
   100% {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 }
 
