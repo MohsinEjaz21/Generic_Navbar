@@ -5,7 +5,7 @@ const path = require('path')
 
 export default defineConfig({
   // also change alias in tsconfig.json compilerOptions > path
-  base: '/react-navbar/',
+  // base: '/react-navbar/',
   resolve: {
     alias: {
       '@src': path.resolve(__dirname, './src'),
@@ -15,7 +15,6 @@ export default defineConfig({
       '@redux': path.resolve(__dirname, './src/redux'),
       '@interfaces': path.resolve(__dirname, './src/interfaces'),
       '@assets': path.resolve(__dirname, './assets'),
-
     },
   },
   server: {
